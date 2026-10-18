@@ -1,0 +1,147 @@
+/* ===== Reset ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+/* ===== Tokens ===== */
+:root {
+  --brand:      #C9D401;
+  --brand-dark: #a8b000;
+  --brand-dim:  rgba(201, 212, 1, 0.13);
+  --ink:        #222222;
+  --ink-2:      #333333;
+  --mid:        #555555;
+  --muted:      #888888;
+  --light:      #f5f5f3;
+  --light-2:    #eeeee9;
+  --border:     #e1e1e1;
+  --white:      #ffffff;
+  --font:       'Roboto', Helvetica, Arial, sans-serif;
+  --container:  1240px;
+  --t:          0.2s;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img  { max-width: 100%; display: block; }
+a    { color: inherit; text-decoration: none; }
+ul   { list-style: none; }
+
+/* ===== Layout ===== */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section         { padding: 5rem 0; }
+.section--light  { background: linear-gradient(150deg, #f7f7f4 0%, #efefea 100%); }
+.section--white  { background: var(--white); }
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--t) ease;
+  white-space: nowrap;
+}
+.btn--brand {
+  background: var(--brand);
+  color: var(--ink);
+  border-color: var(--brand);
+}
+.btn--brand:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+
+.btn--dark {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.btn--dark:hover { background: var(--ink-2); }
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn--outline:hover { background: var(--ink); color: var(--white); }
+
+.btn--outline-light {
+  background: transparent;
+  border-color: rgba(255,255,255,0.55);
+  color: var(--white);
+}
+.btn--outline-light:hover { background: rgba(255,255,255,0.12); }
+
+/* ===== Liquid glass (on light backgrounds) ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(18px) saturate(1.6);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07), 0 1px 0 rgba(255,255,255,1) inset;
+}
+
+/* ===== Typography helpers ===== */
+.label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  margin-bottom: 0.6rem;
+}
+.label--muted { color: var(--muted); }
+
+.brand-line {
+  width: 36px;
+  height: 3px;
+  background: var(--brand);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Skip + SR ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--brand);
+  color: var(--ink);
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  z-index: 9999;
+}
+.skip-link:focus { top: 0; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--light); }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); }

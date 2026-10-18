@@ -1,0 +1,184 @@
+/* ===== Two-panel hero ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 68px);
+  margin-top: 68px;
+}
+
+/* ── Left green panel ── */
+.hero__left {
+  background: var(--brand);
+  padding: 4.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__edition {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+  margin-bottom: 2.5rem;
+}
+
+/* fwbb_logo_white.png = white ink on transparent bg — correct on green */
+.hero__logo {
+  height: clamp(48px, 7vw, 88px);
+  width: auto;
+  object-fit: contain;
+  object-position: left;
+  margin-bottom: 0.25rem;
+}
+
+.hero__year {
+  font-size: clamp(5rem, 10vw, 9.5rem);
+  font-weight: 900;
+  line-height: 0.85;
+  color: rgba(0, 0, 0, 0.15);
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.hero__meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.hero__meta-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  min-width: 44px;
+}
+
+.hero__meta-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hero__theme {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.55);
+  margin-bottom: 2rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid rgba(0, 0, 0, 0.25);
+  font-style: italic;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ── Right photo panel ── */
+.hero__right {
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero__photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Partners strip ===== */
+.hero__partners {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.hero__partners-inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero__partners-logos {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero__partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  opacity: 0.6;
+  transition: opacity var(--t);
+}
+.hero__partner-logo:hover { opacity: 1; }
+
+/* All logos: fixed height, auto width, contained */
+.hero__partner-logo img {
+  height: 36px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+}
+
+/* Square logo (Forum Holzbau 200×200) needs a wider visual slot
+   so it reads at the same perceived size as the wide landscape logos */
+.hero__partner-logo--square img {
+  height: 44px;
+  max-width: 44px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero__right { height: 55vw; min-height: 280px; max-height: 480px; }
+  .hero__left  { padding: 3rem 2rem; }
+}
+
+@media (max-width: 600px) {
+  .hero__actions     { flex-direction: column; }
+  .hero__bar-inner   { flex-direction: column; align-items: flex-start; }
+  .hero__partners-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .hero__partners-logos { gap: 1.5rem; }
+}

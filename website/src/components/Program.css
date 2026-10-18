@@ -1,0 +1,156 @@
+.prog__title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: var(--ink); margin-bottom: 0.75rem; }
+.prog__sub   { font-size: 1rem; color: var(--mid); max-width: 640px; margin-bottom: 2.5rem; line-height: 1.7; }
+
+/* Tabs */
+.prog__tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.prog__tab {
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color var(--t), border-color var(--t), background var(--t);
+}
+.prog__tab:hover { color: var(--ink); }
+.prog__tab--active {
+  color: var(--ink);
+  background: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+/* Panel — liquid glass */
+.prog__panel {
+  padding: 0;
+  border-top: none;
+  /* glass mixin applied, but override top border */
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-top: none;
+  /* Give section bg something to blur over */
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.06);
+}
+
+.prog__day-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Timeline */
+.prog__timeline { display: flex; flex-direction: column; }
+
+.prog__slot {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 1.25rem;
+  padding: 1rem 1.5rem;
+  align-items: start;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 3px solid transparent;
+  transition: background var(--t);
+}
+.prog__slot:last-child { border-bottom: none; }
+.prog__slot:hover { background: rgba(255,255,255,0.9); }
+
+.prog__slot--session  { border-left-color: var(--brand); }
+.prog__slot--social   { border-left-color: var(--brand-dark); }
+.prog__slot--tour     { border-left-color: rgba(201,212,1,0.5); background: rgba(201,212,1,0.04); }
+.prog__slot--logistics { border-left-color: transparent; }
+
+.prog__time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.15rem;
+}
+
+.prog__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.prog__slot-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.prog__slot-note {
+  font-size: 0.82rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Pre-tour photo */
+.prog__tour-figure {
+  margin-top: 1rem;
+  max-width: 520px;
+}
+
+.prog__tour-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+.prog__tour-caption {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.prog__badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  background: rgba(201, 212, 1, 0.18);
+  padding: 0.2rem 0.65rem;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 0.15rem;
+}
+
+.prog__notice {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .prog__slot { grid-template-columns: 1fr; gap: 0.25rem; }
+  .prog__time { color: var(--brand-dark); font-size: 0.72rem; }
+  .prog__badge { align-self: flex-start; }
+  .prog__tour-photo { height: 160px; }
+}

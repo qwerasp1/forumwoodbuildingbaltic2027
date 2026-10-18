@@ -1,0 +1,115 @@
+.exh__title { font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 900; color: var(--ink); margin-bottom: 0.75rem; }
+
+.exh__banner {
+  margin-bottom: 3rem;
+  position: relative;
+}
+.exh__banner img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  border: 1px solid var(--border);
+}
+.exh__banner figcaption {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+.exh__grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.exh__lead {
+  font-size: 1.05rem;
+  color: var(--mid);
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+}
+
+.exh__quote {
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--brand);
+  background: var(--light);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.exh__details { display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; }
+.exh__detail-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.exh__detail-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 64px;
+}
+.exh__detail-val { font-size: 0.9rem; color: var(--ink); }
+.exh__detail-link { color: var(--brand-dark); transition: opacity var(--t); }
+.exh__detail-link:hover { opacity: 0.7; }
+
+.exh__plans { display: flex; flex-direction: column; gap: 0.25rem; }
+.exh__plan-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mid);
+  transition: background var(--t), color var(--t), border-color var(--t);
+  margin-top: 0.35rem;
+}
+.exh__plan-link:hover { background: var(--brand-dim); border-color: var(--brand-dark); color: var(--ink); }
+
+/* Sidebar */
+.exh__sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.exh__cta {
+  padding: 2rem;
+  border-left: 3px solid var(--brand) !important;
+}
+.exh__cta h3 { font-size: 1.4rem; font-weight: 900; color: var(--ink); margin: 0.5rem 0 0.75rem; }
+.exh__cta p  { font-size: 0.88rem; color: var(--mid); line-height: 1.6; margin-bottom: 1.25rem; }
+
+.exh__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+.exh__contact strong { color: var(--ink); font-weight: 700; }
+.exh__contact span   { color: var(--muted); }
+.exh__contact a      { color: var(--brand-dark); }
+
+.exh__downloads {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .exh__grid { grid-template-columns: 1fr; }
+  .exh__banner img { height: 260px; }
+}

@@ -1,0 +1,97 @@
+.ct__title { font-size:clamp(1.8rem,3vw,2.8rem); font-weight:900; color:var(--ink); margin-bottom:0.75rem; }
+.ct__sub   { font-size:1rem; color:var(--mid); max-width:560px; margin-bottom:3rem; line-height:1.7; }
+
+.ct__headshot-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--border);
+  line-height: 1.55;
+}
+
+.ct__grid {
+  grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.ct__group {
+  padding: 1.75rem;
+  border-left: 3px solid var(--brand) !important;
+}
+
+.ct__group-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ct__person {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.ct__person:last-child { margin-bottom: 0; }
+
+.ct__avatar {
+  width: 38px;
+  height: 38px;
+  background: var(--ink);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.ct__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  font-size: 0.83rem;
+}
+.ct__info strong { font-weight: 700; color: var(--ink); font-size: 0.92rem; }
+.ct__role  { color: var(--mid); font-style: italic; }
+.ct__org   { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--brand-dark); }
+.ct__addr  { color: var(--muted); font-size: 0.78rem; }
+.ct__link  { color: var(--ink); font-size: 0.8rem; transition: color var(--t); }
+.ct__link:hover { color: var(--brand-dark); }
+
+/* FH banner */
+.ct__fh {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  background: var(--ink);
+  flex-wrap: wrap;
+}
+.ct__fh-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  /* Forum-Holzbau.png is dark on white — on dark bg we invert */
+  filter: brightness(0) invert(1) opacity(0.75);
+}
+.ct__fh:hover .ct__fh-logo { filter: brightness(0) invert(1) opacity(1); }
+.ct__fh h3 { font-size: 1.1rem; font-weight: 900; color: var(--white); margin-bottom: 0.25rem; }
+.ct__fh p  { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+.ct__fh .btn { margin-left: auto; flex-shrink: 0; }
+
+@media (max-width:700px) {
+  .ct__fh { flex-direction: column; }
+  .ct__fh .btn { margin-left: 0; width: 100%; justify-content: center; }
+}

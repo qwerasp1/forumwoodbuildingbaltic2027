@@ -1,0 +1,133 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow var(--t) ease;
+}
+
+.navbar--scrolled {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.navbar__container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo — uses the black-on-white fwbb_logo.png, no filter */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  /* no filter — the logo is already black on white, perfect for white navbar */
+}
+
+.navbar__logo-sep {
+  display: block;
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
+.navbar__logo-year {
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.navbar__link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 0.5rem 0.85rem;
+  border-bottom: 3px solid transparent;
+  transition: color var(--t), border-color var(--t);
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__link:hover          { color: var(--ink); }
+.navbar__link--active        { color: var(--ink); border-bottom-color: var(--brand); }
+
+.navbar__cta {
+  margin-left: 1rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  height: auto;
+  border-bottom: none !important;
+}
+
+/* Hamburger */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.navbar__hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.22s, opacity 0.22s;
+}
+.navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__hamburger.open span:nth-child(2) { opacity: 0; }
+.navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 960px) {
+  .navbar__hamburger { display: flex; }
+
+  .navbar__links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 68px; left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 2rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .navbar__links--open { display: flex; }
+
+  .navbar__link {
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border) !important;
+    border-left: none;
+  }
+  .navbar__link--active { border-left: 3px solid var(--brand) !important; padding-left: 0.5rem; }
+  .navbar__cta { margin-left: 0; margin-top: 1rem; width: 100%; justify-content: center; }
+}
