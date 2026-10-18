@@ -28,7 +28,7 @@ export default function Destination() {
         {/* Tallinn panorama — Wikimedia CC BY-SA 4.0, Hendrik Mändla */}
         <figure className="dest__city-photo">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/64/Tallinna_vanalinn_p%C3%A4ikeset%C3%B5usu_ajal.jpg"
+            src="/tallinn-oldtown.jpg"
             alt="Tallinn Old Town at sunrise, Estonia"
             loading="lazy"
           />
@@ -72,7 +72,7 @@ export default function Destination() {
           {/* Venue photo — Wikimedia CC BY-SA 4.0, Liilia Moroz */}
           <figure className="dest__venue-photo">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Tallinn_Kultuurikatel.jpg"
+              src="/kultuurikatel.jpg"
               alt="Tallinn Creative Hub (Kultuurikatel) exterior"
               loading="lazy"
             />

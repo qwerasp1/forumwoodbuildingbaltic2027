@@ -5,23 +5,33 @@
   background: var(--white);
   border-bottom: 1px solid var(--border);
   transition: box-shadow var(--t) ease;
+  /* Stretch the navbar bar itself to full viewport width */
+  width: 100%;
 }
 
 .navbar--scrolled {
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
+/*
+  The container centers content up to max-width.
+  On screens wider than max-width, the container fills max-width
+  and is centered — logo hugs the left edge of the container,
+  links hug the right edge via margin-left:auto on the links ul.
+*/
 .navbar__container {
   max-width: var(--container);
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
   height: 68px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* No justify-content — logo sits naturally at start,
+     margin-left:auto on links pushes them to the end */
 }
 
-/* Logo — uses the black-on-white fwbb_logo.png, no filter */
+/* Logo — left side */
 .navbar__logo {
   display: flex;
   align-items: center;
@@ -34,7 +44,6 @@
   height: 32px;
   width: auto;
   object-fit: contain;
-  /* no filter — the logo is already black on white, perfect for white navbar */
 }
 
 .navbar__logo-sep {
@@ -51,11 +60,12 @@
   letter-spacing: -0.01em;
 }
 
-/* Links */
+/* Links — right side, margin-left:auto pushes to the far right */
 .navbar__links {
   display: flex;
   align-items: center;
   gap: 0;
+  margin-left: auto;
 }
 
 .navbar__link {
@@ -72,8 +82,8 @@
   align-items: center;
 }
 
-.navbar__link:hover          { color: var(--ink); }
-.navbar__link--active        { color: var(--ink); border-bottom-color: var(--brand); }
+.navbar__link:hover     { color: var(--ink); }
+.navbar__link--active   { color: var(--ink); border-bottom-color: var(--brand); }
 
 .navbar__cta {
   margin-left: 1rem;
@@ -83,7 +93,7 @@
   border-bottom: none !important;
 }
 
-/* Hamburger */
+/* Hamburger — hidden on desktop */
 .navbar__hamburger {
   display: none;
   flex-direction: column;
@@ -94,17 +104,21 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  margin-left: auto; /* push hamburger to the right on mobile too */
 }
+
 .navbar__hamburger span {
   display: block;
   height: 2px;
   background: var(--ink);
   transition: transform 0.22s, opacity 0.22s;
 }
+
 .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .navbar__hamburger.open span:nth-child(2) { opacity: 0; }
 .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Mobile */
 @media (max-width: 960px) {
   .navbar__hamburger { display: flex; }
 
@@ -112,6 +126,8 @@
     display: none;
     flex-direction: column;
     align-items: flex-start;
+    /* Reset margin-left so the dropdown fills full width */
+    margin-left: 0;
     position: absolute;
     top: 68px; left: 0; right: 0;
     background: var(--white);
@@ -126,8 +142,15 @@
     height: auto;
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--border) !important;
-    border-left: none;
   }
-  .navbar__link--active { border-left: 3px solid var(--brand) !important; padding-left: 0.5rem; }
-  .navbar__cta { margin-left: 0; margin-top: 1rem; width: 100%; justify-content: center; }
+  .navbar__link--active {
+    border-left: 3px solid var(--brand) !important;
+    padding-left: 0.5rem;
+  }
+  .navbar__cta {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
 }
