@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './Program.css';
 
 const days = [
@@ -29,8 +28,6 @@ const days = [
 const typeLabel = { session: 'Session', social: 'Social', tour: 'Tour' };
 
 export default function Program() {
-  const [day, setDay] = useState(0);
-
   return (
     <section id="program" className="section section--white program">
       <div className="container">
@@ -42,24 +39,9 @@ export default function Program() {
           Tallinn Creative Hub (Kultuurikatel). Full speaker program to be announced closer to the event.
         </p>
 
-        {/* Tabs */}
-        <div className="prog__tabs" role="tablist">
-          {days.map((d, i) => (
-            <button
-              key={d.short}
-              role="tab"
-              aria-selected={day === i}
-              className={`prog__tab${day === i ? ' prog__tab--active' : ''}`}
-              onClick={() => setDay(i)}
-            >
-              {d.short}
-            </button>
-          ))}
-        </div>
-
-        {/* Panels */}
-        {days.map((d, i) => (
-          <div key={d.short} role="tabpanel" hidden={day !== i} className="prog__panel glass">
+        {/* Day panels — sequential, no tabs */}
+        {days.map((d) => (
+          <div key={d.short} className="prog__panel glass">
             <h3 className="prog__day-heading">{d.full}</h3>
             <div className="prog__timeline">
               {d.slots.map((slot, j) => (
@@ -91,6 +73,9 @@ export default function Program() {
             </div>
           </div>
         ))}
+
+        {/* PDF link to be added when available */}
+        <a href="#" className="btn btn--outline prog__pdf-btn" download>Download Program (PDF)</a>
 
         <p className="prog__notice">
           All conference sessions take place at Tallinn Creative Hub (Kultuurikatel), Kursi 3, Tallinn.

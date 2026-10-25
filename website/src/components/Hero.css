@@ -166,6 +166,56 @@
   max-width: 44px;
 }
 
+/* Add to Calendar */
+.hero__cal {
+  position: relative;
+  display: inline-block;
+}
+.hero__cal-btn {
+  background: transparent;
+  border: 2px solid rgba(0,0,0,0.3);
+  color: var(--ink);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.hero__cal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+.hero__cal-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid var(--border);
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+.hero__cal-item {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+.hero__cal-item:last-child {
+  border-bottom: none;
+}
+.hero__cal-item:hover {
+  background: var(--light);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .hero {

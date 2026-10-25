@@ -79,6 +79,7 @@
 .reg__payment h3 { font-size:1.2rem; font-weight:900; color:var(--ink); margin-bottom:0.6rem; }
 .reg__payment p  { color:var(--mid); font-size:0.92rem; line-height:1.65; margin-bottom:1.25rem; }
 .reg__payment strong { color:var(--ink); }
+.reg__payment-note { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); }
 
 .reg__badges { display:flex; flex-wrap:wrap; gap:0.35rem; }
 .reg__badge {

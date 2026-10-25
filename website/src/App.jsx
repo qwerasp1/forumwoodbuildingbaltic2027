@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Program from './components/Program';
+import Speakers from './components/Speakers';
 import Exhibition from './components/Exhibition';
 import Registration from './components/Registration';
 import Destination from './components/Destination';
@@ -18,6 +19,7 @@ export default function App() {
         <Hero />
         <About />
         <Program />
+        <Speakers />
         <Exhibition />
         <Registration />
         <Destination />

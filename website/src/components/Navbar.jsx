@@ -5,6 +5,7 @@ const navLinks = [
   { label: 'Home',         href: '#home' },
   { label: 'About',        href: '#about' },
   { label: 'Program',      href: '#program' },
+  { label: 'Speakers',     href: '#speakers' },
   { label: 'Exhibition',   href: '#exhibition' },
   { label: 'Registration', href: '#registration' },
   { label: 'Destination',  href: '#destination' },
@@ -15,6 +16,7 @@ export default function Navbar() {
   const [scrolled, setScrolled]           = useState(false);
   const [menuOpen, setMenuOpen]           = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [lang, setLang]                   = useState('EN');
 
   useEffect(() => {
     const onScroll = () => {
@@ -63,6 +65,21 @@ export default function Navbar() {
             <a href="#registration" className="btn btn--brand navbar__cta" onClick={e => { e.preventDefault(); go('#registration'); }}>
               Register
             </a>
+          </li>
+          <li role="none" className="navbar__lang-item">
+            <span className="navbar__lang">
+              <button
+                className={`navbar__lang-btn${lang === 'EN' ? ' navbar__lang-btn--active' : ''}`}
+                onClick={() => setLang('EN')}
+                aria-pressed={lang === 'EN'}
+              >EN</button>
+              <span className="navbar__lang-sep" aria-hidden="true">|</span>
+              <button
+                className={`navbar__lang-btn${lang === 'ET' ? ' navbar__lang-btn--active' : ''}`}
+                onClick={() => setLang('ET')}
+                aria-pressed={lang === 'ET'}
+              >ET</button>
+            </span>
           </li>
         </ul>
       </div>

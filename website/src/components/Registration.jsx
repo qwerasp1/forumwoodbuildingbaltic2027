@@ -12,12 +12,10 @@ const pricing = [
 ];
 
 const deadlines = [
-  { label: 'Early Bird', date: 'Until 4 January 2027' },
+  { label: 'Early Bird', date: 'Until 20 December 2026' },
   { label: 'Regular',    date: '5 – 20 January 2027' },
   { label: 'On-site',    date: '21 Jan – 2 Feb 2027' },
 ];
-
-const payment = ['Visa','MasterCard','Amex','Maestro','Union Pay','Apple Pay','Google Pay','Revolut','Bank Transfer'];
 
 export default function Registration() {
   return (
@@ -69,11 +67,9 @@ export default function Registration() {
             <p>
               Registration and payments are processed by <strong>Fienta Ticketing OÜ</strong>.
               Invoices — both e-invoice and PDF — are issued automatically.
-              Delegates also receive a free Tallinn public transport pass for 30 Jan – 5 Feb 2027.
+              Delegates also receive a Tallinn public transport pass (pending final confirmation) for 30 Jan – 5 Feb 2027.
             </p>
-            <div className="reg__badges">
-              {payment.map(m => <span key={m} className="reg__badge">{m}</span>)}
-            </div>
+            <p className="reg__payment-note">Secure payment via card, bank transfer, or invoice upon registration.</p>
           </div>
 
           <div className="reg__cta glass">
@@ -87,7 +83,7 @@ export default function Registration() {
               <li>Secure online payment</li>
               <li>Instant confirmation email</li>
               <li>Automatic invoice (e-invoice or PDF)</li>
-              <li>Free Tallinn public transport pass</li>
+              <li>Tallinn public transport pass (pending final confirmation)</li>
             </ul>
           </div>
         </div>

@@ -93,6 +93,31 @@
   border-bottom: none !important;
 }
 
+.navbar__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+.navbar__lang-sep {
+  color: var(--muted);
+}
+.navbar__lang-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.navbar__lang-btn--active {
+  color: var(--brand-dark);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* Hamburger — hidden on desktop */
 .navbar__hamburger {
   display: none;
@@ -152,5 +177,17 @@
     margin-top: 1rem;
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* On mobile, the lang item sits at the bottom of the open menu */
+@media (max-width: 767px) {
+  .navbar__lang-item {
+    margin-top: auto;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .navbar__lang {
+    margin-left: 0;
   }
 }

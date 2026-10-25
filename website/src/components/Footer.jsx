@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="footer__col">
               <h4>Conference</h4>
               <ul>
-                {['about','program','exhibition','registration'].map(id => (
+                {['about','program','speakers','exhibition','registration'].map(id => (
                   <li key={id}>
                     <a href={`#${id}`} onClick={e => { e.preventDefault(); go(id); }}>
                       {id.charAt(0).toUpperCase() + id.slice(1)}
