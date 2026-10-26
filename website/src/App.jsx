@@ -1,3 +1,6 @@
+import { LanguageProvider } from './i18n';
+import './App.css';
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,11 +11,10 @@ import Registration from './components/Registration';
 import Destination from './components/Destination';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import './App.css';
 
 export default function App() {
   return (
-    <>
+    <LanguageProvider>
       <a href="#home" className="skip-link">Skip to main content</a>
       <Navbar />
       <main id="main-content">
@@ -26,6 +28,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }

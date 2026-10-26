@@ -1,11 +1,27 @@
 import { useState } from 'react';
+import { useLang, PARTNERS } from '../i18n';
 import './Hero.css';
 
 export default function Hero() {
+  const { c } = useLang();
+  const H = c.hero;
   const go = id => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   const [calOpen, setCalOpen] = useState(false);
 
-  const icsContent = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//FWBB//Forum Wood Building Baltic 2027//EN\r\nBEGIN:VEVENT\r\nDTSTART:20270201T090000Z\r\nDTEND:20270202T170000Z\r\nSUMMARY:Forum Wood Building Baltic 2027\r\nLOCATION:Tallinn Creative Hub (Kultuurikatel), Kursi 3, Tallinn, Estonia\r\nDESCRIPTION:8th Forum Wood Building Baltic conference on timber construction.\r\nURL:https://forumwoodbuilding.rtu.lv/\r\nEND:VEVENT\r\nEND:VCALENDAR`;
+  const icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//FWBB//Forum Wood Building Baltic 2027//EN',
+    'BEGIN:VEVENT',
+    'DTSTART:20270201T090000Z',
+    'DTEND:20270202T170000Z',
+    `SUMMARY:${H.icsSummary}`,
+    `LOCATION:${H.icsLocation}`,
+    `DESCRIPTION:${H.icsDescription}`,
+    'URL:https://www.forum-holzbau.com/baltic/',
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ].join('\r\n');
 
   const downloadIcs = () => {
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
@@ -18,7 +34,7 @@ export default function Hero() {
     setCalOpen(false);
   };
 
-  const googleUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Forum+Wood+Building+Baltic+2027&dates=20270201T090000/20270202T170000&location=Kultuurikatel,+Tallinn,+Estonia';
+  const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(H.icsSummary)}&dates=20270201T090000/20270202T170000&location=${encodeURIComponent(H.icsLocation)}`;
 
   return (
     <>
@@ -27,7 +43,7 @@ export default function Hero() {
 
         {/* Left — brand green panel */}
         <div className="hero__left">
-          <span className="hero__edition">8th Forum Wood Building Baltic 2027</span>
+          <span className="hero__edition">{H.edition}</span>
 
           {/* White-on-transparent logo for the green background */}
           <img
@@ -41,22 +57,20 @@ export default function Hero() {
 
           <div className="hero__meta">
             <div className="hero__meta-row">
-              <span className="hero__meta-label">Date</span>
-              <span className="hero__meta-val">1–2 February 2027</span>
+              <span className="hero__meta-label">{H.dateLabel}</span>
+              <span className="hero__meta-val">{H.dateValue}</span>
             </div>
             <div className="hero__meta-row">
-              <span className="hero__meta-label">Venue</span>
-              <span className="hero__meta-val">Tallinn Creative Hub, Estonia</span>
+              <span className="hero__meta-label">{H.venueLabel}</span>
+              <span className="hero__meta-val">{H.venueValue}</span>
             </div>
           </div>
 
-          <p className="hero__theme">
-            Integrated design — where engineering and architecture push the boundaries of timber construction
-          </p>
+          <p className="hero__theme">{H.theme}</p>
 
           <div className="hero__actions">
-            <button className="btn btn--dark" onClick={() => go('registration')}>Registration opening soon</button>
-            <button className="btn btn--outline" onClick={() => go('program')}>View Program</button>
+            <button className="btn btn--dark" onClick={() => go('registration')}>{H.registerSoon}</button>
+            <button className="btn btn--outline" onClick={() => go('program')}>{H.viewProgram}</button>
             <div className="hero__cal">
               <button
                 className="btn hero__cal-btn"
@@ -64,7 +78,7 @@ export default function Hero() {
                 aria-expanded={calOpen}
                 aria-haspopup="true"
               >
-                Add to Calendar
+                {H.addToCalendar}
               </button>
               {calOpen && (
                 <>
@@ -78,13 +92,13 @@ export default function Hero() {
                       role="menuitem"
                       onClick={() => setCalOpen(false)}
                     >
-                      Google Calendar
+                      {H.googleCalendar}
                     </a>
                     <button className="hero__cal-item" role="menuitem" onClick={downloadIcs}>
-                      Download .ics file
+                      {H.downloadIcs}
                     </button>
                     <button className="hero__cal-item" role="menuitem" onClick={downloadIcs}>
-                      Outlook / iCal
+                      {H.outlook}
                     </button>
                   </div>
                 </>
@@ -100,27 +114,19 @@ export default function Hero() {
             alt="Timber structure interior — Loodusmaja 'Taru', Tallinn. Photo: Tõnu Tunnel"
             className="hero__photo"
           />
-          <div className="hero__photo-caption">
-            Loodusmaja "Taru", Tallinn · Photo: Tõnu Tunnel · General contractor: Nordecon
-          </div>
+          <div className="hero__photo-caption">{H.photoCaption}</div>
         </div>
       </section>
 
       {/* ===== Partners strip ===== */}
       <div className="hero__partners">
         <div className="container hero__partners-inner">
-          <span className="label label--muted">Organisers &amp; Partners</span>
+          <span className="label label--muted">{H.partnersLabel}</span>
           <div className="hero__partners-logos">
-            {[
-              { src: '/taltech_logo.png',                            alt: 'TalTech',                  href: 'https://taltech.ee/en/',           square: false },
-              { src: '/eka_logo.png',                                alt: 'Estonian Academy of Arts', href: 'https://www.artun.ee/en/home/',    square: false },
-              { src: '/Forum-Holzbau.png',                           alt: 'Forum Holzbau',            href: 'https://forum-holzbau.com/de',     square: true  },
-              { src: '/woodhouse-estonia_logo_green_CMYK_print.png', alt: 'Woodhouse Estonia',        href: 'https://woodhouse.ee/',            square: false },
-              { src: '/tallinn_logo.png',                            alt: 'City of Tallinn',          href: 'https://www.visittallinn.ee/eng',  square: false },
-            ].map(({ src, alt, href, square }) => (
-              <a key={alt} href={href} target="_blank" rel="noopener noreferrer"
-                className={`hero__partner-logo${square ? ' hero__partner-logo--square' : ''}`} title={alt}>
-                <img src={src} alt={alt} />
+            {PARTNERS.map(({ id, name, url, logo, square }) => (
+              <a key={id} href={url} target="_blank" rel="noopener noreferrer"
+                className={`hero__partner-logo${square ? ' hero__partner-logo--square' : ''}`} title={name}>
+                <img src={logo} alt={name} />
               </a>
             ))}
           </div>

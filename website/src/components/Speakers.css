@@ -70,18 +70,3 @@
   border-left: 3px solid var(--brand);
   line-height: 1.4;
 }
-.speakers__cta {
-  text-align: center;
-  padding: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-.speakers__cta p {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin: 0;
-}
-.speakers__cta-link {
-  color: var(--brand-dark);
-  font-weight: 600;
-  text-decoration: underline;
-}

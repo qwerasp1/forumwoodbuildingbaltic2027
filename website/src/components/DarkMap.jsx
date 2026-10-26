@@ -12,9 +12,13 @@ export default function DarkMap() {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    if (mapRef.current) return; // already initialised
+    let cancelled = false;
 
     import('leaflet').then(({ default: L }) => {
+      // StrictMode runs this effect twice; bail out if this run was already torn down
+      // or if a map was already created on the container.
+      if (cancelled || mapRef.current || !containerRef.current) return;
+
       const map = L.map(containerRef.current, {
         center: [LAT, LNG],
         zoom: ZOOM,
@@ -54,6 +58,7 @@ export default function DarkMap() {
     });
 
     return () => {
+      cancelled = true;
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;

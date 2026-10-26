@@ -121,9 +121,65 @@
 
 .prog__pdf-btn { margin: 1.5rem auto 0; display: block; width: fit-content; }
 
+/* Parallel sessions */
+.prog__parallel {
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--border);
+}
+.prog__parallel-heading {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  margin-bottom: 0.5rem;
+}
+.prog__parallel-tba {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--muted);
+}
+.prog__parallel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+}
+.prog__parallel-track {
+  min-width: 0;
+  border-left: 2px solid var(--brand);
+  padding-left: 0.65rem;
+}
+.prog__parallel-name {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.prog__parallel-list { display: flex; flex-direction: column; gap: 0.15rem; }
+.prog__parallel-list li {
+  position: relative;
+  font-size: 0.78rem;
+  color: var(--mid);
+  line-height: 1.45;
+  padding-left: 0.75rem;
+}
+.prog__parallel-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 4px;
+  height: 4px;
+  background: var(--brand);
+}
+
 @media (max-width: 640px) {
   .prog__slot { grid-template-columns: 1fr; gap: 0.25rem; }
   .prog__time { color: var(--brand-dark); font-size: 0.72rem; }
   .prog__badge { align-self: flex-start; }
   .prog__tour-photo { height: 160px; }
+  .prog__parallel-grid { grid-template-columns: 1fr; }
 }

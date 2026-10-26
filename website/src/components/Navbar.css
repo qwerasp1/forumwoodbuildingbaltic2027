@@ -69,103 +69,149 @@
 }
 
 .navbar__link {
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--mid);
-  padding: 0.5rem 0.85rem;
+  padding: 0.5rem 0.6rem;
   border-bottom: 3px solid transparent;
   transition: color var(--t), border-color var(--t);
   height: 68px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navbar__link:hover     { color: var(--ink); }
 .navbar__link--active   { color: var(--ink); border-bottom-color: var(--brand); }
 
 .navbar__cta {
-  margin-left: 1rem;
-  padding: 0.5rem 1.25rem;
-  font-size: 0.8rem;
+  margin-left: 0.9rem;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.74rem;
   height: auto;
   border-bottom: none !important;
+  flex-shrink: 0;
 }
 
+/* Language switch — compact segmented control */
 .navbar__lang {
   display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.8rem;
-  margin-left: 1rem;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.navbar__lang-sep {
-  color: var(--muted);
-}
+
 .navbar__lang-btn {
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-weight: 400;
-}
-.navbar__lang-btn--active {
-  color: var(--brand-dark);
+  font-family: var(--font);
+  font-size: 0.68rem;
   font-weight: 700;
-  text-decoration: underline;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--muted);
+  padding: 0.34rem 0.5rem;
+  transition: background var(--t), color var(--t);
+}
+.navbar__lang-btn + .navbar__lang-btn { border-left: 1px solid var(--border); }
+.navbar__lang-btn:hover { color: var(--ink); background: var(--light); }
+.navbar__lang-btn--active {
+  background: var(--brand);
+  color: var(--ink);
+}
+.navbar__lang-btn--active:hover { background: var(--brand); color: var(--ink); }
+
+/* Right cluster — language switch + (on small screens) menu button */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0.9rem;
+  flex-shrink: 0;
 }
 
-/* Hamburger — hidden on desktop */
-.navbar__hamburger {
+/* Menu button — hidden on desktop, replaces the nav row on small screens */
+.navbar__menu-btn {
   display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--t), border-color var(--t);
+}
+.navbar__menu-btn:hover { background: var(--light); border-color: var(--mid); }
+
+.navbar__menu-icon {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 24px;
-  height: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-left: auto; /* push hamburger to the right on mobile too */
+  width: 16px;
+  height: 11px;
 }
-
-.navbar__hamburger span {
+.navbar__menu-icon span {
   display: block;
   height: 2px;
   background: var(--ink);
   transition: transform 0.22s, opacity 0.22s;
 }
+.navbar__menu-btn--open .navbar__menu-icon span:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+.navbar__menu-btn--open .navbar__menu-icon span:nth-child(2) { opacity: 0; }
+.navbar__menu-btn--open .navbar__menu-icon span:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
 
-.navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.navbar__hamburger.open span:nth-child(2) { opacity: 0; }
-.navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* Dim layer behind the open mobile menu */
+.navbar__backdrop {
+  display: none;
+  position: fixed;
+  top: 69px; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.35);
+}
 
-/* Mobile */
-@media (max-width: 960px) {
-  .navbar__hamburger { display: flex; }
+/* ===== Mobile / tablet =====
+   The breakpoint is deliberately generous: the Estonian labels are much longer
+   than the English ones ("Registreerimine", "Konverentsist") and the row needs
+   ~1130px to fit comfortably. */
+@media (max-width: 1200px) {
+  .navbar__menu-btn { display: inline-flex; }
+  .navbar__backdrop { display: block; }
+  .navbar__right { margin-left: auto; }
 
   .navbar__links {
     display: none;
     flex-direction: column;
-    align-items: flex-start;
-    /* Reset margin-left so the dropdown fills full width */
+    align-items: stretch;
     margin-left: 0;
     position: absolute;
-    top: 68px; left: 0; right: 0;
+    top: 69px; left: 0; right: 0;
+    z-index: 2;
+    max-height: calc(100vh - 69px);
+    overflow-y: auto;
     background: var(--white);
     border-bottom: 1px solid var(--border);
     padding: 0.5rem 2rem 1.5rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.14);
   }
   .navbar__links--open { display: flex; }
 
   .navbar__link {
     width: 100%;
     height: auto;
-    padding: 0.75rem 0;
+    padding: 0.8rem 0;
     border-bottom: 1px solid var(--border) !important;
   }
   .navbar__link--active {
@@ -180,14 +226,16 @@
   }
 }
 
-/* On mobile, the lang item sits at the bottom of the open menu */
-@media (max-width: 767px) {
-  .navbar__lang-item {
-    margin-top: auto;
-    padding: 0.8rem 0;
-    border-top: 1px solid var(--border);
-  }
-  .navbar__lang {
-    margin-left: 0;
-  }
+@media (max-width: 480px) {
+  .navbar__container { padding: 0 1.25rem; }
+  .navbar__links { padding: 0.5rem 1.25rem 1.25rem; }
+  .navbar__logo-img { height: 28px; }
+}
+
+/* Very narrow phones — drop the redundant year so the bar stays uncrowded */
+@media (max-width: 420px) {
+  .navbar__logo-sep,
+  .navbar__logo-year { display: none; }
+  .navbar__right { gap: 0.5rem; }
+  .navbar__menu-btn { padding: 0.45rem 0.55rem; }
 }
