@@ -262,7 +262,7 @@ const en = {
       {
         group: 'Organisation',
         people: [
-          { name: 'Mariann Lugus', title: 'Organisational Coordinator', org: 'Tallinn University of Technology', addr: 'Ehitajate tee 5, 19086 Tallinn' },
+          { name: 'Mariann Lugus', title: 'Organisational Coordinator', org: 'Tallinn University of Technology', addr: 'Ehitajate tee 5, 19086 Tallinn', email: 'mariann.lugus@taltech.ee' },
         ],
       },
       {
@@ -528,7 +528,7 @@ const et = {
       {
         group: 'Korraldus',
         people: [
-          { name: 'Mariann Lugus', title: 'Korralduskoordinaator', org: 'Tallinna Tehnikaülikool', addr: 'Ehitajate tee 5, 19086 Tallinn' },
+          { name: 'Mariann Lugus', title: 'Korralduskoordinaator', org: 'Tallinna Tehnikaülikool', addr: 'Ehitajate tee 5, 19086 Tallinn', email: 'mariann.lugus@taltech.ee' },
         ],
       },
       {
