@@ -109,6 +109,79 @@
   gap: 0.25rem;
 }
 
+/* Exhibitor & Sponsor packages */
+.exh__packages { margin-top: 4rem; }
+.exh__sub-title { font-size: 1.3rem; font-weight: 900; color: var(--ink); margin-bottom: 0.5rem; }
+.exh__sub-note {
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.65;
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+}
+
+.exh__table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.exh__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  background: var(--white);
+}
+.exh__table thead { background: var(--ink); }
+.exh__table th {
+  padding: 0.9rem 1.25rem;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.exh__table td {
+  padding: 0.8rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--ink);
+  vertical-align: top;
+}
+.exh__table tbody tr:last-child td { border-bottom: none; }
+.exh__table tbody tr:hover { background: var(--light); }
+.exh__cell-feature { color: var(--mid); }
+.exh__row--price { background: var(--brand-dim); }
+.exh__row--price td { font-weight: 900; font-size: 1rem; }
+.exh__cell-price { white-space: nowrap; }
+.exh__cell-mark { color: var(--brand-dark); font-weight: 900; }
+.exh__footnote {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+/* Exhibitor practical information */
+.exh__info { margin-top: 3.5rem; }
+.exh__info-list { display: flex; flex-direction: column; margin-top: 1.25rem; max-width: 760px; }
+.exh__info-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.exh__info-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 160px;
+}
+.exh__info-value { font-size: 0.88rem; color: var(--ink); }
+
 @media (max-width: 900px) {
   .exh__grid { grid-template-columns: 1fr; }
   .exh__banner img { height: 260px; }

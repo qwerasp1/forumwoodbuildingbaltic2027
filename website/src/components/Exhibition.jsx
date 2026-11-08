@@ -79,14 +79,65 @@ export default function Exhibition() {
 
             <div className="exh__downloads glass">
               <span className="label label--muted">{E.downloadsLabel}</span>
-              {E.downloads.map(name => (
-                <a key={name} href={E.downloadsUrl}
+              {E.downloads.map(({ name, url }) => (
+                <a key={url} href={url}
                   target="_blank" rel="noopener noreferrer" className="exh__plan-link">
                   {name}
                   <ArrowIcon />
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Exhibitor & Sponsor packages */}
+        <div className="exh__packages">
+          <span className="label">{E.packagesLabel}</span>
+          <h3 className="exh__sub-title">{E.packagesTitle}</h3>
+          <p className="exh__sub-note">{E.packagesSub}</p>
+
+          <div className="exh__table-wrap">
+            <table className="exh__table">
+              <thead>
+                <tr>
+                  <th scope="col" className="exh__th-feature" />
+                  {E.packagesColumns.map(col => (
+                    <th key={col} scope="col">{col}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="exh__row--price">
+                  <td>{E.packagesPriceRowLabel}</td>
+                  {E.packagesPrices.map(price => (
+                    <td key={price} className="exh__cell-price">{price}</td>
+                  ))}
+                </tr>
+                {E.packagesRows.map(row => (
+                  <tr key={row.label}>
+                    <td className="exh__cell-feature">{row.label}</td>
+                    {row.values.map((value, i) => (
+                      <td key={i} className={value === '✓' ? 'exh__cell-mark' : ''}>{value}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="exh__footnote">{E.packagesFootnote}</p>
+        </div>
+
+        {/* Exhibitor practical information */}
+        <div className="exh__info">
+          <span className="label label--muted">{E.infoLabel}</span>
+          <h3 className="exh__sub-title">{E.infoTitle}</h3>
+          <div className="exh__info-list">
+            {E.infoItems.map(({ label, value }) => (
+              <div key={label} className="exh__info-row">
+                <span className="exh__info-label">{label}</span>
+                <span className="exh__info-value">{value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
