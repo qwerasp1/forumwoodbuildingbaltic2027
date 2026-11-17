@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLang, PARTNERS } from '../i18n';
+import { useLang, PARTNERS, REGISTRATION_URL } from '../i18n';
 import './Hero.css';
 
 export default function Hero() {
@@ -69,7 +69,7 @@ export default function Hero() {
           <p className="hero__theme">{H.theme}</p>
 
           <div className="hero__actions">
-            <button className="btn btn--dark" onClick={() => go('registration')}>{H.registerSoon}</button>
+            <a className="btn btn--dark" href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer">{H.registerSoon}</a>
             <button className="btn btn--outline" onClick={() => go('program')}>{H.viewProgram}</button>
             <div className="hero__cal">
               <button

@@ -28,6 +28,9 @@ export const PRICE_ROWS = [
   { id: 'reception',  eb: '60',    reg: '60',    on: '80' },
 ];
 
+/* External registration page (Fienta) — shared by Navbar, Hero and Registration CTAs. */
+export const REGISTRATION_URL = 'https://fienta.com/forum-wood-building-baltic-fwbb-2027-2';
+
 const en = {
   nav: {
     home: 'Home', about: 'About', program: 'Program', speakers: 'Speakers',
@@ -40,7 +43,7 @@ const en = {
     dateLabel: 'Date', dateValue: '1–2 February 2027',
     venueLabel: 'Venue', venueValue: 'Tallinn Creative Hub, Estonia',
     theme: 'Integrated design — where engineering and architecture push the boundaries of timber construction',
-    registerSoon: 'Registration opening soon',
+    registerSoon: 'Register Now',
     viewProgram: 'View Program',
     addToCalendar: 'Add to Calendar',
     googleCalendar: 'Google Calendar',
@@ -209,10 +212,10 @@ const en = {
   registration: {
     label: 'Registration',
     title: 'Secure Your Seat',
-    sub: 'All rates include 24% local VAT. Registration opens October 2026 via Fienta Ticketing.',
+    sub: 'All rates include 24% local VAT. Registration is open via Fienta Ticketing.',
     deadlines: [
       { label: 'Early Bird', date: 'Until 20 December 2026' },
-      { label: 'Regular',    date: '5 – 20 January 2027' },
+      { label: 'Regular',    date: '21 December 2026 – 20 January 2027' },
       { label: 'On-site',    date: '21 Jan – 2 Feb 2027' },
     ],
     tableHeaders: { category: 'Category', eb: 'Early Bird', reg: 'Regular', on: 'On-site' },
@@ -231,10 +234,10 @@ const en = {
     payBold: 'Fienta Ticketing OÜ',
     payB: '. Invoices — both e-invoice and PDF — are issued automatically. Delegates also receive a Tallinn public transport pass (pending final confirmation) for 30 Jan – 5 Feb 2027.',
     payNote: 'Secure payment via card, bank transfer, or invoice upon registration.',
-    ctaLabel: 'Opens October 2026',
+    ctaLabel: 'Registration Open',
     ctaTitle: 'Ready to Register?',
-    ctaBody: 'Online registration opens October 2026 via Fienta. Instant confirmation and invoice included.',
-    ctaButton: 'Registration Opening Soon',
+    ctaBody: 'Secure your place via Fienta. Instant confirmation and invoice included.',
+    ctaButton: 'Register Now',
     perks: [
       'Secure online payment',
       'Instant confirmation email',
@@ -341,7 +344,7 @@ const et = {
     dateLabel: 'Kuupäev', dateValue: '1.–2. veebruar 2027',
     venueLabel: 'Toimumiskoht', venueValue: 'Tallinn Creative Hub, Eesti',
     theme: 'Integreeritud projekteerimine — kus inseneriteadus ja arhitektuur nihutavad puitkonstruktsioonide piire',
-    registerSoon: 'Registreerimine avaneb peagi',
+    registerSoon: 'Registreeru',
     viewProgram: 'Vaata programmi',
     addToCalendar: 'Lisa kalendrisse',
     googleCalendar: 'Google Calendar',
@@ -510,10 +513,10 @@ const et = {
   registration: {
     label: 'Registreerimine',
     title: 'Kindlusta oma koht',
-    sub: 'Kõik hinnad sisaldavad 24% kohalikku käibemaksu. Registreerimine avaneb oktoobris 2026 Fienta kaudu.',
+    sub: 'Kõik hinnad sisaldavad 24% kohalikku käibemaksu. Registreerimine on avatud Fienta kaudu.',
     deadlines: [
       { label: 'Varajane registreerimine', date: 'Kuni 20. detsember 2026' },
-      { label: 'Tavahind',                 date: '5.–20. jaanuar 2027' },
+      { label: 'Tavahind',                 date: '21. detsember 2026 – 20. jaanuar 2027' },
       { label: 'Kohapeal',                 date: '21. jaanuar – 2. veebruar 2027' },
     ],
     tableHeaders: { category: 'Kategooria', eb: 'Varajane', reg: 'Tavahind', on: 'Kohapeal' },
@@ -532,10 +535,10 @@ const et = {
     payBold: 'Fienta Ticketing OÜ',
     payB: '. Arved — nii e-arved kui PDF-arved — väljastatakse automaatselt. Osalejad saavad ka Tallinna ühistranspordi pileti (lõplik kinnitus veel ootel) perioodiks 30. jaanuar – 5. veebruar 2027.',
     payNote: 'Turvaline maksmine kaardiga, pangaülekandega või arve alusel registreerimisel.',
-    ctaLabel: 'Avatakse oktoobris 2026',
+    ctaLabel: 'Registreerimine avatud',
     ctaTitle: 'Valmis registreeruma?',
-    ctaBody: 'Veebiregistreerimine avaneb oktoobris 2026 Fienta kaudu. Kinnitus ja arve saadetakse kohe.',
-    ctaButton: 'Registreerimine avaneb peagi',
+    ctaBody: 'Kindlusta oma koht Fienta kaudu. Kinnitus ja arve saadetakse kohe.',
+    ctaButton: 'Registreeru kohe',
     perks: [
       'Turvaline veebimaksmine',
       'Kohene kinnituskiri',

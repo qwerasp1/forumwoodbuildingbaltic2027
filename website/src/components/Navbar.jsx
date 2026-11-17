@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLang, LANGUAGES } from '../i18n';
+import { useLang, LANGUAGES, REGISTRATION_URL } from '../i18n';
 import './Navbar.css';
 
 const NAV_ITEMS = [
@@ -67,7 +67,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a href="#registration" className="btn btn--brand navbar__cta" onClick={e => { e.preventDefault(); go('#registration'); }}>
+            <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn btn--brand navbar__cta" onClick={() => setMenuOpen(false)}>
               {c.nav.register}
             </a>
           </li>

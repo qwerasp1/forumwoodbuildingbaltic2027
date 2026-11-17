@@ -1,4 +1,4 @@
-import { useLang, PRICE_ROWS } from '../i18n';
+import { useLang, PRICE_ROWS, REGISTRATION_URL } from '../i18n';
 import './Registration.css';
 
 export default function Registration() {
@@ -61,9 +61,9 @@ export default function Registration() {
             <span className="label">{R.ctaLabel}</span>
             <h3>{R.ctaTitle}</h3>
             <p>{R.ctaBody}</p>
-            <button className="btn btn--brand" disabled aria-disabled="true" style={{opacity:0.5,cursor:'not-allowed'}}>
+            <a className="btn btn--brand" href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer">
               {R.ctaButton}
-            </button>
+            </a>
             <ul className="reg__perks">
               {R.perks.map(perk => <li key={perk}>{perk}</li>)}
             </ul>
